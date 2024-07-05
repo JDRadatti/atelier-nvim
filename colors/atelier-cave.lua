@@ -8,10 +8,13 @@ local colors = {
     DapUIVariable = { link = "Normal" },
     ColorColumn = { fg = "#585260" },
     Comment = { fg = "#655F6D" },
+    Conceal = { fg = "#655F6D" },
     Constant = { fg = "#AA573C" },
     CurSearch = { fg = "#955BE6", bg = "#3F137C" },
     Cursor = { fg = "#EFECF4" },
-    CursorLine = { bg = "#26232A" },
+    CursorColumn = { bg = "#26232A" },
+    CursorLine = { link = "CursorColumn" },
+    CursorIM = { fg = "#955BE6" },
     CursorLineFold = {},
     CursorLineNr = {},
     DapUIBreakpointsCurrentLine = { fg = "#576DDB", bold = true },
@@ -39,7 +42,7 @@ local colors = {
     DapUIUnavailable = { fg = "#424242" },
     DapUIWatchesEmpty = { fg = "#BE4678" },
     DapUIWatchesError = { fg = "#B34D4D" },
-    DapUIWatchesValue = { fg = "#A06E3B" },
+    DapUIWatchesValue = { fg = "#2A9292" },
     DapUIWinSelect = { fg = "#298364" },
     Delimiter = { fg = "#E2DFE7" },
     DiagnosticError = { fg = "#B34D4D" },
@@ -62,10 +65,10 @@ local colors = {
     Folded = {},
     Function = { fg = "#398BC6" },
     Identifier = { fg = "#E2DFE7" },
-    IncSearch = { fg = "#EFECF4", bg = "#A06E3B" },
+    IncSearch = { fg = "#EFECF4", bg = "#576DDB" },
     LineNr = { fg = "#585260" },
     MatchParen = { fg = "#955BE6" },
-    ModeMsg = { fg = "#19171C" },
+    ModeMsg = { fg = "#576DDB" },
     MoreMsg = { fg = "#398BC6" },
     MsgArea = { fg = "#655F6D" },
     MsgSeparator = {},
@@ -97,6 +100,7 @@ local colors = {
     TabLine = { fg = "#585260" },
     TabLineFill = { fg = "#7E7887" },
     TabLineSel = { fg = "#19171C", bg = "#955BE6" },
+    TelescopeBorder = { fg = "#585260" },
     Title = { fg = "#955BE6" },
     Todo = { fg = "#BE4678" },
     Type = { fg = "#A06E3B" },
@@ -107,9 +111,9 @@ local colors = {
     WarningMsg = { fg = "#B34D4D" },
     Whitespace = {},
     WildMenu = { fg = "#BE4678", bg = "#571E36" },
+    lCursor = { fg = "#955BE6" },
     -- PATCH_CLOSE
     -- content here will not be touched
-    TelescopeBorder = { fg = "#655F6D" } -- Not automatically added for some reason
 }
 
 vim.cmd("highlight clear")

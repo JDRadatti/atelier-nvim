@@ -81,14 +81,14 @@ local theme = lush(function(injected_functions)
         --
         -- See :h highlight-groups
         --
-        ColorColumn { fg = base02 },                       -- Columns set with 'colorcolumn'
-        -- Conceal        { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
-        Cursor { fg = base07 },                            -- Character under the cursor
-        CurSearch { fg = base0e, bg = base0e.darken(55) }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
-        -- lCursor        { }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
-        -- CursorIM       { }, -- Like Cursor, but used when in IME mode |CursorIM|
-        -- CursorColumn   { bg = }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-        CursorLine { bg = base01 },                                 -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
+        ColorColumn { fg = base02 },                                -- Columns set with 'colorcolumn'
+        Conceal { fg = base03 },                                    -- Placeholder characters substituted for concealed text (see 'conceallevel')
+        Cursor { fg = base07 },                                     -- Character under the cursor
+        CurSearch { fg = base0e, bg = base0e.darken(55) },          -- Highlighting a search pattern under the cursor (see 'hlsearch')
+        lCursor { fg = base0e },                                    -- Character under the cursor when |language-mapping| is used (see 'guicursor')
+        CursorIM { fg = base0e },                                   -- Like Cursor, but used when in IME mode |CursorIM|
+        CursorColumn { bg = base01 },                               -- Screen-column at the cursor, when 'cursorcolumn' is set.
+        CursorLine { CursorColumn },                                -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
         Directory { fg = base0c },                                  -- Directory names (and other special names in listings)
         DiffAdd { fg = basegreen, bg = basegreen.darken(85) },      -- Diff mode: Added line |diff.txt|
         DiffAdded { fg = basegreen, bg = basegreen.darken(85) },    -- Git Fugitive
@@ -104,37 +104,37 @@ local theme = lush(function(injected_functions)
         Folded {},                              -- Line used for closed folds
         FoldColumn {},                          -- 'foldcolumn'
         SignColumn {},                          -- Column where |signs| are displayed
-        IncSearch { bg = base0a, fg = base07 }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+        IncSearch { bg = base0d, fg = base07 }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
         Substitute { fg = base0a },             -- |:substitute| replacement text highlighting
         LineNr { fg = base02 },                 -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
         -- LineNrAbove    { }, -- Line number for when the 'relativenumber' option is set, above the cursor line
         -- LineNrBelow    { }, -- Line number for when the 'relativenumber' option is set, below the cursor line
-        CursorLineNr {},              -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-        CursorLineFold {},            -- Like FoldColumn when 'cursorline' is set for the cursor line
+        CursorLineNr {},                       -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+        CursorLineFold {},                     -- Like FoldColumn when 'cursorline' is set for the cursor line
         -- CursorLineSign { }, -- Like SignColumn when 'cursorline' is set for the cursor line
-        MatchParen { fg = base0e },   -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-        ModeMsg { fg = base0d },      -- 'showmode' message (e.g., "-- INSERT -- ")
-        MsgArea { fg = base03 },      -- Area for messages and cmdline
-        MsgSeparator {},              -- Separator for scrolled messages, `msgsep` flag of 'display'
-        MoreMsg { fg = base0c },      -- |more-prompt|
-        NonText { fg = base0c },      -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-        Normal { fg = base07 },       -- Normal text
-        NormalFloat { fg = base07 },  -- Normal text in floating windows.
-        FloatBorder { fg = base01 },  -- Border of floating windows.
-        FloatTitle { fg = base0e },   -- Title of floating windows.
-        NormalNC { fg = base04 },     -- normal text in non-current windows
-        Pmenu { bg = base00 },        -- Popup menu: Normal item.
-        PmenuSel { bg = base01 },     -- Popup menu: Selected item.
-        PmenuKind { fg = base0e },    -- Popup menu: Normal item "kind"
-        PmenuKindSel { fg = base03 }, -- Popup menu: Selected item "kind"
-        PmenuExtra { PmenuSel },      -- Popup menu: Normal item "extra text"
-        PmenuExtraSel { PmenuSel },   -- Popup menu: Selected item "extra text"
-        PmenuSbar {},                 -- Popup menu: Scrollbar.
-        PmenuThumb {},                -- Popup menu: Thumb of the scrollbar.
-        Question { fg = baseerror },  -- |hit-enter| prompt and yes/no questions
-        QuickFixLine { fg = base09 }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-        Search { fg = base0f },       -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
-        SpecialKey { fg = base0c },   -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
+        MatchParen { fg = base0e },            -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+        ModeMsg { fg = base0d },               -- 'showmode' message (e.g., "-- INSERT -- ")
+        MsgArea { fg = base03 },               -- Area for messages and cmdline
+        MsgSeparator {},                       -- Separator for scrolled messages, `msgsep` flag of 'display'
+        MoreMsg { fg = base0c },               -- |more-prompt|
+        NonText { fg = base0c },               -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+        Normal { fg = base07 },                -- Normal text
+        NormalFloat { fg = base0e },           -- Normal text in floating windows.
+        FloatBorder { fg = base01 },           -- Border of floating windows.
+        FloatTitle { fg = base0e },            -- Title of floating windows.
+        NormalNC { fg = base04 },              -- normal text in non-current windows
+        Pmenu { bg = base00 },                 -- Popup menu: Normal item.
+        PmenuSel { bg = base01, fg = base07 }, -- Popup menu: Selected item.
+        PmenuKind { fg = base0e },             -- Popup menu: Normal item "kind"
+        PmenuKindSel { fg = base03 },          -- Popup menu: Selected item "kind"
+        PmenuExtra { PmenuSel },               -- Popup menu: Normal item "extra text"
+        PmenuExtraSel { PmenuSel },            -- Popup menu: Selected item "extra text"
+        PmenuSbar {},                          -- Popup menu: Scrollbar.
+        PmenuThumb {},                         -- Popup menu: Thumb of the scrollbar.
+        Question { fg = baseerror },           -- |hit-enter| prompt and yes/no questions
+        QuickFixLine { fg = base09 },          -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
+        Search { fg = base0f },                -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
+        SpecialKey { fg = base0c },            -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
         -- SpellBad       { }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
         -- SpellCap       { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
         -- SpellLocal     { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
@@ -220,7 +220,7 @@ local theme = lush(function(injected_functions)
         DapUIFloatNormal { NormalFloat },
         DapUIFloatBorder { fg = base03 },
         DapUIWatchesEmpty { fg = base08 },
-        DapUIWatchesValue { fg = base0a },
+        DapUIWatchesValue { fg = base0b },
         DapUIWatchesError { fg = baseerror },
         DapUIBreakpointsPath { fg = base0c },
         DapUIBreakpointsInfo { fg = base0d },
